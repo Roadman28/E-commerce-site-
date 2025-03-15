@@ -17,7 +17,7 @@ loginForm.addEventListener("submit", function(event) {
         alert("Invalid username or password. Attempt " + loginAttempts + " of 3.");
 
         if (loginAttempts >= 3) {
-            window.location.href = "error.html"; // Redirect to error page after 3 failed attempts
+            window.location.href = "https://roadman28.github.io/E-commerce-site-/Codes/error.html"; // Redirect to error page after 3 failed attempts
         }
     }
 });
