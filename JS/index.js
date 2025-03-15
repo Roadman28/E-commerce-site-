@@ -11,7 +11,7 @@ loginForm.addEventListener("submit", function(event) {
 
     if (username === validUsername && password === validPassword) {
         loginAttempts = 0; // Reset login attempts on successful login
-        window.location.href = "products.html"; // Redirect to products page immediately
+        window.location.href = "https://github.com/Roadman28/E-commerce-site-/Codes/products.html"; // Redirect to products page immediately
     } else {
         loginAttempts++;
         alert("Invalid username or password. Attempt " + loginAttempts + " of 3.");
