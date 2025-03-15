@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartDropdown();
 
         // Redirect to invoice.html
-        window.location.href = "invoice.html";
+        window.location.href = "https://roadman28.github.io/E-commerce-site-/Codes/invoice.html";
     });
 
     // Toggle Cart Dropdown
