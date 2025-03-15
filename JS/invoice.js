@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Optionally, redirect the user back to the products page
                 setTimeout(() => {
-                    window.location.href = "products.html";
+                    window.location.href = "https://roadman28.github.io/E-commerce-site-/Codes/products.html";
                 }, 2000); // Redirect after 2 seconds
             } else {
                 alert("No order to cancel.");
