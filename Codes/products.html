@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skinify Products</title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/products.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="ecom-navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="Assets/logo.png" alt="Skinify Logo" class="logo-img">
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-box">
+                <input type="text" placeholder="Search for products">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li>
+                    <img src="Assets/aboutme.gif" alt="about me" class="nav-gif">
+                    <a href="#" id="about-me-link">About Me</a>
+                </li>
+            </ul>
+
+            <!-- Icons: Cart & Profile -->
+            <div class="nav-icons">
+                <a href="#" class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-counter">0</span></a>
+                
+                <!-- Cart Dropdown -->
+                <div class="cart-dropdown">
+                    <div class="cart-items"></div>
+                </div>
+                <div class="profile-dropdown">
+                    <button class="profile-btn"><i class="fas fa-user"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="invoice.html">My Orders</a> 
+                        <a href="index.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Summary Section -->
+    <section class="summary-section">
+        <div class="summary-content">
+            <h1>Custom Gaming Console Skins</h1>
+            <p>Personalize your console with premium vinyl skins.</p>
+        </div>
+    </section>
+
+    <!-- About Me Pop-up Modal -->
+    <div id="about-me-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Me</h2>
+            <p><strong>Name:</strong> Shahidi Burke</p>
+            <p><strong>ID#:</strong> 2405836</p>
+            <p><strong>Email:</strong> <a href="mailto:shahidirburke@students.utech.edu.jm">shahidirburke@students.utech.edu.jm</a></p>
+            <p><strong>Module Code:</strong> CIT2011</p>
+            <p><strong>Assignment:</strong> IA#2</p>
+            <p><strong>Class:</strong> Tuesday, 11AM</p>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <h2>Shop by Category</h2>
+        <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+        <div class="categories-carousel">
+            <div class="category-card" data-console="ps5">
+                <img src="Assets/ps5.png" alt="PS5">
+                <h3>PS5</h3>
+            </div>
+            <div class="category-card" data-console="ps4">
+                <img src="Assets/ps4.png" alt="PS4">
+                <h3>PS4</h3>
+            </div>
+            <div class="category-card" data-console="ps3">
+                <img src="Assets/ps3.png" alt="PS3">
+                <h3>PS3</h3>
+            </div>
+            <div class="category-card" data-console="ps2">
+                <img src="Assets/ps2.png" alt="PS2">
+                <h3>PS2</h3>
+            </div>
+            <div class="category-card" data-console="switch">
+                <img src="Assets/switch.png" alt="Nintendo Switch">
+                <h3>Nintendo Switch</h3>
+            </div>
+            <div class="category-card" data-console="xbox360">
+                <img src="Assets/xbox360.png" alt="Xbox 360">
+                <h3>Xbox 360</h3>
+            </div>
+            <div class="category-card" data-console="wii">
+                <img src="Assets/wii.png" alt="Nintendo Wii">
+                <h3>Nintendo Wii</h3>
+            </div>
+            <div class="category-card" data-console="xbox">
+                <img src="Assets/xbox.png" alt="Xbox">
+                <h3>Xbox</h3>
+            </div>
+            <div class="category-card" data-console="gamecube">
+                <img src="Assets/gamecube.png" alt="GameCube">
+                <h3>GameCube</h3>
+            </div>
+            <div class="category-card" data-console="ps1">
+                <img src="Assets/ps1.png" alt="PlayStation 1">
+                <h3>PlayStation 1</h3>
+            </div>
+            <div class="category-card" data-console="snes">
+                <img src="Assets/snes.png" alt="Super Nintendo (SNES)">
+                <h3>SNES</h3>
+            </div>
+            <div class="category-card" data-console="3ds">
+                <img src="Assets/n3ds.png" alt="Nintendo 3DS">
+                <h3>Nintendo 3DS</h3>
+            </div>
+            <div class="category-card" data-console="gameboy-advance">
+                <img src="Assets/gameboy.png" alt="GameBoy Advance">
+                <h3>GameBoy Advance</h3>
+            </div>
+            <div class="category-card" data-console="xbox-series-x">
+                <img src="Assets/seriesX.png" alt="Xbox Series X">
+                <h3>Xbox Series X</h3>
+            </div>
+        </div>
+        <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+
+        <!-- Show All button -->
+        <button id="show-all" class="filter-btn">Show All</button>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section id="products" class="product-grid-section">
+        <h2>Featured Products</h2>
+        <div class="product-container">
+            <!-- PS5 Skins -->
+            <div class="product-card" id="ps5">
+                <img src="Assets/ps5-skin1.png" alt="PS5 Skin 1">
+                <h3>PS5 Skin 1</h3>
+                <p class="description">Custom PS5 skin with premium vinyl finish for a sleek look.</p>
+                <p class="price">$20.00</p>
+                <input type="number" id="quantity-1" value="1" min="1">
+                <button class="add-to-cart" data-product="1">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="ps5">
+                <img src="Assets/ps5-skin2.png" alt="PS5 Skin 2">
+                <h3>PS5 Skin 2</h3>
+                <p class="description">Custom PS5 skin with a modern design.</p>
+                <p class="price">$20.00</p>
+                <input type="number" id="quantity-2" value="1" min="1">
+                <button class="add-to-cart" data-product="2">Add to Cart</button>
+            </div>
+
+            <!-- PS4 Skins -->
+            <div class="product-card" id="ps4">
+                <img src="Assets/ps4-skin1.png" alt="PS4 Skin 1">
+                <h3>PS4 Skin 1</h3>
+                <p class="description">Custom PS4 skin with durable, easy-to-apply vinyl.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-3" value="1" min="1">
+                <button class="add-to-cart" data-product="3">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="ps4">
+                <img src="Assets/ps4-skin2.png" alt="PS4 Skin 2">
+                <h3>PS4 Skin 2</h3>
+                <p class="description">Custom PS4 skin with a retro design.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-4" value="1" min="1">
+                <button class="add-to-cart" data-product="4">Add to Cart</button>
+            </div>
+
+            <!-- PS3 Skins -->
+            <div class="product-card" id="ps3">
+                <img src="Assets/ps3-skin1.png" alt="PS3 Skin 1">
+                <h3>PS3 Skin 1</h3>
+                <p class="description">Custom PS3 skin with a retro design for classic consoles.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-5" value="1" min="1">
+                <button class="add-to-cart" data-product="5">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="ps3">
+                <img src="Assets/ps3-skin2.png" alt="PS3 Skin 2">
+                <h3>PS3 Skin 2</h3>
+                <p class="description">Custom PS3 skin with a modern twist.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-6" value="1" min="1">
+                <button class="add-to-cart" data-product="6">Add to Cart</button>
+            </div>
+
+            <!-- PS2 Skins -->
+            <div class="product-card" id="ps2">
+                <img src="Assets/ps2-skin1.png" alt="PS2 Skin 1">
+                <h3>PS2 Skin 1</h3>
+                <p class="description">Custom PS2 skin with a nostalgic design for retro gamers.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-7" value="1" min="1">
+                <button class="add-to-cart" data-product="7">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="ps2">
+                <img src="Assets/ps2-skin2.png" alt="PS2 Skin 2">
+                <h3>PS2 Skin 2</h3>
+                <p class="description">Custom PS2 skin with a sleek, modern design.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-8" value="1" min="1">
+                <button class="add-to-cart" data-product="8">Add to Cart</button>
+            </div>
+
+            <!-- Nintendo Switch Skins -->
+            <div class="product-card" id="switch">
+                <img src="Assets/switch-skin1.png" alt="Nintendo Switch Skin 1">
+                <h3>Nintendo Switch Skin 1</h3>
+                <p class="description">Custom Nintendo Switch skin with vibrant designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-9" value="1" min="1">
+                <button class="add-to-cart" data-product="9">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="switch">
+                <img src="Assets/switch-skin2.png" alt="Nintendo Switch Skin 2">
+                <h3>Nintendo Switch Skin 2</h3>
+                <p class="description">Custom Nintendo Switch skin with retro designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-10" value="1" min="1">
+                <button class="add-to-cart" data-product="10">Add to Cart</button>
+            </div>
+
+            <!-- Xbox 360 Skins -->
+            <div class="product-card" id="xbox360">
+                <img src="Assets/xbox360-skin1.png" alt="Xbox 360 Skin 1">
+                <h3>Xbox 360 Skin 1</h3>
+                <p class="description">Custom Xbox 360 skin with vibrant designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-11" value="1" min="1">
+                <button class="add-to-cart" data-product="11">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="xbox360">
+                <img src="Assets/xbox360-skin2.png" alt="Xbox 360 Skin 2">
+                <h3>Xbox 360 Skin 2</h3>
+                <p class="description">Custom Xbox 360 skin with retro designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-12" value="1" min="1">
+                <button class="add-to-cart" data-product="12">Add to Cart</button>
+            </div>
+
+            <!-- Nintendo Wii Skins -->
+            <div class="product-card" id="wii">
+                <img src="Assets/wii-skin1.png" alt="Nintendo Wii Skin 1">
+                <h3>Nintendo Wii Skin 1</h3>
+                <p class="description">Custom Nintendo Wii skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-13" value="1" min="1">
+                <button class="add-to-cart" data-product="13">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="wii">
+                <img src="Assets/wii-skin2.png" alt="Nintendo Wii Skin 2">
+                <h3>Nintendo Wii Skin 2</h3>
+                <p class="description">Custom Nintendo Wii skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-14" value="1" min="1">
+                <button class="add-to-cart" data-product="14">Add to Cart</button>
+            </div>
+
+            <!-- Xbox Skins -->
+            <div class="product-card" id="xbox">
+                <img src="Assets/xbox-skin1.png" alt="Xbox Skin 1">
+                <h3>Xbox Skin 1</h3>
+                <p class="description">Custom Xbox skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-15" value="1" min="1">
+                <button class="add-to-cart" data-product="15">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="xbox">
+                <img src="Assets/xbox-skin2.png" alt="Xbox Skin 2">
+                <h3>Xbox Skin 2</h3>
+                <p class="description">Custom Xbox skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-16" value="1" min="1">
+                <button class="add-to-cart" data-product="16">Add to Cart</button>
+            </div>
+
+            <!-- GameCube Skins -->
+            <div class="product-card" id="gamecube">
+                <img src="Assets/gamecube-skin1.png" alt="GameCube Skin 1">
+                <h3>GameCube Skin 1</h3>
+                <p class="description">Custom GameCube skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-17" value="1" min="1">
+                <button class="add-to-cart" data-product="17">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="gamecube">
+                <img src="Assets/gamecube-skin2.png" alt="GameCube Skin 2">
+                <h3>GameCube Skin 2</h3>
+                <p class="description">Custom GameCube skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-18" value="1" min="1">
+                <button class="add-to-cart" data-product="18">Add to Cart</button>
+            </div>
+
+            <!-- PlayStation 1 Skins -->
+            <div class="product-card" id="ps1">
+                <img src="Assets/ps1-skin1.png" alt="PlayStation 1 Skin 1">
+                <h3>PlayStation 1 Skin 1</h3>
+                <p class="description">Custom PlayStation 1 skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-19" value="1" min="1">
+                <button class="add-to-cart" data-product="19">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="ps1">
+                <img src="Assets/ps1-skin2.png" alt="PlayStation 1 Skin 2">
+                <h3>PlayStation 1 Skin 2</h3>
+                <p class="description">Custom PlayStation 1 skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-20" value="1" min="1">
+                <button class="add-to-cart" data-product="20">Add to Cart</button>
+            </div>
+
+            <!-- SNES Skins -->
+            <div class="product-card" id="snes">
+                <img src="Assets/snes-skin1.png" alt="SNES Skin 1">
+                <h3>SNES Skin 1</h3>
+                <p class="description">Custom SNES skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-21" value="1" min="1">
+                <button class="add-to-cart" data-product="21">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="snes">
+                <img src="Assets/snes-skin2.png" alt="SNES Skin 2">
+                <h3>SNES Skin 2</h3>
+                <p class="description">Custom SNES skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-22" value="1" min="1">
+                <button class="add-to-cart" data-product="22">Add to Cart</button>
+            </div>
+
+            <!-- Nintendo 3DS Skins -->
+            <div class="product-card" id="3ds">
+                <img src="Assets/n3ds-skin1.png" alt="Nintendo 3DS Skin 1">
+                <h3>Nintendo 3DS Skin 1</h3>
+                <p class="description">Custom Nintendo 3DS skin with vibrant designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-23" value="1" min="1">
+                <button class="add-to-cart" data-product="23">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="3ds">
+                <img src="Assets/n3ds-skin2.png" alt="Nintendo 3DS Skin 2">
+                <h3>Nintendo 3DS Skin 2</h3>
+                <p class="description">Custom Nintendo 3DS skin with retro designs.</p>
+                <p class="price">$15.00</p>
+                <input type="number" id="quantity-24" value="1" min="1">
+                <button class="add-to-cart" data-product="24">Add to Cart</button>
+            </div>
+
+            <!-- GameBoy Advance Skins -->
+            <div class="product-card" id="gameboy-advance">
+                <img src="Assets/gameboy-skin1.png" alt="GameBoy Advance Skin 1">
+                <h3>GameBoy Advance Skin 1</h3>
+                <p class="description">Custom GameBoy Advance skin with vibrant designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-25" value="1" min="1">
+                <button class="add-to-cart" data-product="25">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="gameboy-advance">
+                <img src="Assets/gameboy-skin2.png" alt="GameBoy Advance Skin 2">
+                <h3>GameBoy Advance Skin 2</h3>
+                <p class="description">Custom GameBoy Advance skin with retro designs.</p>
+                <p class="price">$10.00</p>
+                <input type="number" id="quantity-26" value="1" min="1">
+                <button class="add-to-cart" data-product="26">Add to Cart</button>
+            </div>
+
+            <!-- Xbox Series X Skins -->
+            <div class="product-card" id="xbox-series-x">
+                <img src="Assets/seriesX-skin1.png" alt="Xbox Series X Skin 1">
+                <h3>Xbox Series X Skin 1</h3>
+                <p class="description">Custom Xbox Series X skin with sleek designs.</p>
+                <p class="price">$25.00</p>
+                <input type="number" id="quantity-27" value="1" min="1">
+                <button class="add-to-cart" data-product="27">Add to Cart</button>
+            </div>
+
+            <div class="product-card" id="xbox-series-x">
+                <img src="Assets/seriesX-skin2.png" alt="Xbox Series X Skin 2">
+                <h3>Xbox Series X Skin 2</h3>
+                <p class="description">Custom Xbox Series X skin with modern designs.</p>
+                <p class="price">$25.00</p>
+                <input type="number" id="quantity-28" value="1" min="1">
+                <button class="add-to-cart" data-product="28">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="trademark-footer">
+        <p>© 2025 Skinify. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="JS/products.js"></script>
+</body>
+</html>

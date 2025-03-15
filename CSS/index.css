@@ -1,0 +1,81 @@
+/* Center the content vertically and horizontally */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+/* Logo Position */
+.logo {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+/* Login Box */
+.container {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-top: 10px; /* Adds space between labels and inputs */
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2ea043;
+}
+
+/* Footer Contact Icons */
+.contact-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-icons img {
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+
+.contact-icons img:hover {
+    transform: scale(1.1);
+}

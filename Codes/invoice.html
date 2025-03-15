@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - Skinify</title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/invoice.css"> <!-- Link to invoice.css -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="ecom-navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="Assets/logo.png" alt="Skinify Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="products.html">Back to Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Invoice Section -->
+    <section class="invoice-section">
+        <h2>Invoice</h2>
+        <div id="invoice-details">
+            <!-- Invoice details will be dynamically inserted here -->
+        </div>
+        <!-- Cancel Button -->
+        <button id="cancel-invoice" class="cancel-btn">Cancel Order</button>
+    </section>
+
+    <!-- Order History Section -->
+    <section class="order-history-section">
+        <h2>Order History</h2>
+        <div id="order-history">
+            <!-- Order history will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <script>
+        // Load invoices from sessionStorage
+        let invoices = JSON.parse(sessionStorage.getItem("invoices")) || [];
+
+        // Function to display the latest invoice
+        function displayLatestInvoice() {
+            const invoiceDetails = document.getElementById("invoice-details");
+            if (invoices.length > 0) {
+                const latestInvoice = invoices[invoices.length - 1];
+                if (latestInvoice.status === "Cancelled") {
+                    invoiceDetails.innerHTML = "<p>Your order has been cancelled.</p>";
+                } else {
+                    invoiceDetails.innerHTML = `
+                        <p><strong>Date:</strong> ${latestInvoice.date}</p>
+                        <p><strong>Status:</strong> ${latestInvoice.status || "Completed"}</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${latestInvoice.items.map(item => `
+                                    <tr>
+                                        <td>${item.name}</td>
+                                        <td>${item.quantity}</td>
+                                        <td>$${item.price.toFixed(2)}</td>
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>
+                        <p><strong>Subtotal:</strong> $${latestInvoice.subtotal.toFixed(2)}</p>
+                        <p><strong>Tax (15%):</strong> $${latestInvoice.tax.toFixed(2)}</p>
+                        <p><strong>Total:</strong> $${latestInvoice.total.toFixed(2)}</p>
+                    `;
+                }
+            } else {
+                invoiceDetails.innerHTML = "<p>No invoices found.</p>";
+            }
+        }
+
+        // Function to display order history
+        function displayOrderHistory() {
+            const orderHistory = document.getElementById("order-history");
+            if (invoices.length > 0) {
+                orderHistory.innerHTML = invoices.map((invoice, index) => `
+                    <div class="order">
+                        <h3>Order #${index + 1}</h3>
+                        <p><strong>Date:</strong> ${invoice.date}</p>
+                        <p><strong>Status:</strong> ${invoice.status || "Completed"}</p>
+                        <p><strong>Total:</strong> $${invoice.total.toFixed(2)}</p>
+                    </div>
+                `).join("");
+            } else {
+                orderHistory.innerHTML = "<p>No order history found.</p>";
+            }
+        }
+
+        // Display the latest invoice and order history on page load
+        displayLatestInvoice();
+        displayOrderHistory();
+
+        // Cancel Button Functionality
+        const cancelButton = document.getElementById("cancel-invoice");
+        cancelButton.addEventListener("click", function () {
+            if (invoices.length > 0) {
+                const latestInvoice = invoices[invoices.length - 1];
+                if (latestInvoice.status !== "Cancelled") {
+                    latestInvoice.status = "Cancelled"; // Mark the latest invoice as cancelled
+                    sessionStorage.setItem("invoices", JSON.stringify(invoices)); // Update sessionStorage
+
+                    // Update the UI to reflect the cancellation
+                    displayLatestInvoice();
+                    displayOrderHistory();
+                } else {
+                    alert("This order has already been cancelled.");
+                }
+            } else {
+                alert("No order to cancel.");
+            }
+        });
+    </script>
+</body>
+</html>

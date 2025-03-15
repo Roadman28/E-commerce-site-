@@ -1,0 +1,49 @@
+/* Error Page Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+
+.error-container {
+    text-align: center;
+    background-color: #161b22;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    width: 400px;
+}
+
+.error-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff6b6b; /* Red color for error title */
+}
+
+.error-message {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #8b949e;
+}
+
+.return-button {
+    background-color: #238636;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.return-button:hover {
+    background-color: #2ea043;
+}
